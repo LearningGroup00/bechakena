@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @varient %>
+
+<div>
+  <%= link_to "Edit this varient", edit_varient_path(@varient) %> |
+  <%= link_to "Back to varients", varients_path %>
+
+  <%= button_to "Destroy this varient", @varient, method: :delete %>
+</div>

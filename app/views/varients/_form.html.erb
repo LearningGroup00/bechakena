@@ -1,0 +1,32 @@
+<%= form_with(model: varient) do |form| %>
+  <% if varient.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(varient.errors.count, "error") %> prohibited this varient from being saved:</h2>
+
+      <ul>
+        <% varient.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :color, style: "display: block" %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div>
+    <%= form.label :size, style: "display: block" %>
+    <%= form.text_field :size %>
+  </div>
+
+  <div>
+    <%= form.label :sku, style: "display: block" %>
+    <%= form.text_field :sku %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
