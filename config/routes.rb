@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'home/home'
+  get 'home/index'
+  get 'home/index'
+
+
   resources :varients
   resources :products
   resources :categories
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "home#index"
+
 end
