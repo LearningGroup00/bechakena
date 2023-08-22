@@ -21,6 +21,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_132414) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "men_fashions", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pants", force: :cascade do |t|
+    t.string "brand"
+    t.decimal "price"
+    t.string "size"
+    t.string "color"
+    t.string "Type"
+    t.text "description"
+    t.bigint "men_fashion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["men_fashion_id"], name: "index_pants_on_men_fashion_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.text "description"
@@ -31,6 +51,55 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_132414) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "punjabis", force: :cascade do |t|
+    t.string "brand"
+    t.decimal "price"
+    t.string "size"
+    t.string "color"
+    t.text "description"
+    t.bigint "men_fashion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["men_fashion_id"], name: "index_punjabis_on_men_fashion_id"
+  end
+
+  create_table "sarees", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.decimal "price"
+    t.string "size"
+    t.string "color"
+    t.text "description"
+    t.bigint "women_fashion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["women_fashion_id"], name: "index_sarees_on_women_fashion_id"
+  end
+
+  create_table "shirts", force: :cascade do |t|
+    t.string "brand"
+    t.decimal "price"
+    t.string "size"
+    t.string "color"
+    t.text "description"
+    t.bigint "men_fashion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["men_fashion_id"], name: "index_shirts_on_men_fashion_id"
+  end
+
+  create_table "t_shirts", force: :cascade do |t|
+    t.string "brand"
+    t.decimal "price"
+    t.string "size"
+    t.string "color"
+    t.text "description"
+    t.bigint "men_fashion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["men_fashion_id"], name: "index_t_shirts_on_men_fashion_id"
+  end
+
   create_table "varients", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "color"
@@ -39,6 +108,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_132414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_varients_on_product_id"
+  end
+
+  create_table "women_fashions", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
