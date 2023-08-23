@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  upazilla: MyString
+  postcode: MyString
+  address-line: MyText
+
+two:
+  type: 
+  upazilla: MyString
+  postcode: MyString
+  address-line: MyText
