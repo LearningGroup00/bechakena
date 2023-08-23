@@ -12,9 +12,17 @@
   <% end %>
 
   <div>
+  <%= form.label :user_id_id %><br>
+  <%= form.collection_select :user_id, User.all, :id, :name %>
+
+</div> <br/>
+
+
+  <div>
     <%= form.label :type, style: "display: block" %>
-    <%= form.text_field :type %>
-  </div>
+    <%= form.select :type, ["BillingAddress", "ShippingAddress"] %>
+  </div>  <br/>
+
 
   <div>
     <%= form.label :upazilla, style: "display: block" %>
@@ -31,11 +39,8 @@
     <%= form.text_area :address %>
   </div>
 
-  <div>
-    <%= form.label :user_id_id %><br>
-    <%= form.collection_select :user_id, User.all, :id, :name %>
-
-  </div>
+ 
+  <br/>
 
   <div>
     <%= form.submit %>

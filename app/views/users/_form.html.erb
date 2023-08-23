@@ -2,7 +2,6 @@
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
         <% user.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -24,6 +23,19 @@
   <div>
     <%= form.label :password, style: "display: block" %>
     <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.fields_for :address do |a| %>
+      <%= a.label :type, style: "display: block" %>
+      <%= a.select :type, ["BillingAddress", "ShippingAddress"] %>
+      <%= a.label :upazilla, style: "display: block" %>
+      <%= a.text_field :upazilla %>
+      <%= a.label :postcode, style: "display: block" %>
+      <%= a.text_field :postcode %>
+      <%= a.label :address, style: "display: block" %>
+      <%= a.text_area :address %>
+    <% end %>
   </div>
 
   <div>
