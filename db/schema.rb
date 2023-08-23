@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_082200) do
     t.bigint "user_id", null: false
     t.string "upazilla"
     t.string "postcode"
-    t.text "address_line"
+    t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"

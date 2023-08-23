@@ -65,6 +65,6 @@ class VarientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def varient_params
-      params.require(:varient).permit(:color, :size, :sku)
+      params.require(:varient).permit(:color, :size, :sku, :product_id)
     end
 end

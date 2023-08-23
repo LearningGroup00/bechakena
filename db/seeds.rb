@@ -16,8 +16,8 @@ u3=User.create(name: "cccc", email: 'manoffn@gmail1.com', password: '12')
 u4=User.create(name: "ddddd", email: 'manonds@gmail1.com', password: '12')
 
 
-a1=BillingAddress.create(user_id: 1,upazilla:"rani",postcode:"a32",address_line:"asjnjs")
-a2=BillingAddress.create(user_id: 2,upazilla:"rani",postcode:"a32",address_line:"asjnjs")
+a1=BillingAddress.create(user_id: 1,upazilla:"rani",postcode:"a32",address:"asjnjs")
+a2=BillingAddress.create(user_id: 2,upazilla:"rani",postcode:"a32",address:"asjnjs")
 
-a3=ShippingAddress.create(user_id: 3,upazilla:"rani",postcode:"a32",address_line:"asjnjs")
-a4=ShippingAddress.create(user_id: 4,upazilla:"rani",postcode:"a32",address_line:"asjnjs")
+a3=ShippingAddress.create(user_id: 3,upazilla:"rani",postcode:"a32",address:"asjnjs")
+a4=ShippingAddress.create(user_id: 4,upazilla:"rani",postcode:"a32",address:"asjnjs")

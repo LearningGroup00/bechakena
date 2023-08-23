@@ -5,7 +5,7 @@ class CreateAddresses < ActiveRecord::Migration[7.0]
       t.belongs_to :user, null: false
       t.string :upazilla
       t.string :postcode
-      t.text :address_line
+      t.text :address
 
       t.timestamps
     end
