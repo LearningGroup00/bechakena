@@ -1,0 +1,22 @@
+<h3>All Categories</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name(super manual)</th>
+      <th scope="col">Name(semi manual)</th>
+      <th scope="col">Name(automatic)</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td> <a href="http://localhost:3000/categories/<%= category.id %>"><%= category.name %></a> </td>
+        <td> <%= link_to(category.name, category_url(id: category.id)) %> </td>
+        <td> <%= link_to(category.name, category) %> </td>
+        <td><%= category.category&.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
