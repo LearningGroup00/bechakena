@@ -1,2 +1,32 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<div class="row">
+  <div class="col">
+    Edit Category <%= @category.name %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= form_with model: @category do |form| %>
+      <div>
+        <%= form.label :name, class: "form-label" %><br>
+        <%= form.text_field :name, class: "form-control" %>
+         <% @category.errors.full_messages_for(:name).each do |message| %>
+          <div class="text-bg-danger"><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :category_id, "Category ID", class: "form-label"%>
+        <%= form.select :category_id, Category.parent_categories.map { |c| [c.name, c.id] }, {}, class: "form-select" %>
+
+        <% @category.errors.full_messages_for(:category_id).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div class="mt-5">
+        <%= form.submit "Update", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

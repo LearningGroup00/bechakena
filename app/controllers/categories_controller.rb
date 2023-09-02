@@ -26,12 +26,27 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:id])
+    render :edit
   end
 
   def update
+    @category = Category.find(params[:id])
+
+    if @category.update(category_params)
+      # redirect_to category_url(id: category.id)
+      redirect_to category_url(@category)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @category = Category.find(params[:id])
+
+    if @category.destroy
+      redirect_to categories_path
+    end
   end
 
   # def category_params
