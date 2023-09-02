@@ -1,2 +1,45 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<div class="row">
+  <div class="col">
+    Add new Category
+  </div>
+</div>
+
+
+<%# <div class="row">
+  <div class="col">
+    <form action="/categories" method="post">
+      <label for="name">Category Name:</label><br>
+      <input type="text" id="fname" name="category[name]"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div> %>
+
+<div class="row">
+  <div class="col">
+    <%= form_with model: @category do |form| %>
+      <div>
+        <%= form.label :name, class: "form-label" %><br>
+        <%= form.text_field :name, class: "form-control" %>
+         <% @category.errors.full_messages_for(:name).each do |message| %>
+          <div class="text-bg-danger"><%= message %></div>
+        <% end %>
+      </div>
+
+
+      <div>
+        <%= form.label :category_id, "Category ID", class: "form-label"%>
+        <%# <%= form.select :category_id, [["Men", 1], ["Women", 2]] %>
+        <%= form.select :category_id, Category.parent_categories.map { |c| [c.name, c.id] }, {}, class: "form-select" %>
+
+        <% @category.errors.full_messages_for(:category_id).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div class="mt-5">
+        <%= form.submit "Create", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
