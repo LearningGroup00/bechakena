@@ -8,7 +8,10 @@
 #  updated_at  :datetime         not null
 #  category_id :bigint
 #
-class Category < ApplicationRecord
-  has_many :categories
-  belongs_to :category, optional: true
+require "test_helper"
+
+class CategoryTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
