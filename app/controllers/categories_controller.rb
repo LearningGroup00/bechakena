@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def index
     @categories = Category.all
   end
@@ -26,11 +28,21 @@ class CategoriesController < ApplicationController
   end
 
   def update
-
+    find_params 
+    if @category.update(category_params)
+      redirect_to category_url(@category)
+    else 
+      render :edit
+    end 
   end
 
   def destroy
-    @category.delete
+    find_params 
+    if @category.destroy 
+      redirect_to root_path, status: :see_other
+    else
+    
+    end 
   end
 
   private 

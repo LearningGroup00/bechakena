@@ -13,10 +13,10 @@
         %>
       </h6>
       <p class="card-text"></p>
-      <%= link_to "Add New", new_category_url %>
-      <%= link_to "Edit", edit_category_url %>
-      <% link_to "Delete", controller: "categories", action: "delete", id: @category %>
-   
-      <a href="#" class="card-link">Delete</a>
+      <%= link_to("Add New", new_category_url) %>
+      <%= link_to("Edit", edit_category_url) %>
+      <%= button_to("Delete", category_path(@category), data:{ 
+                  turbo_method: :delete, 
+                  turbo_confirm: "Are you sure?"}) %>
     </div>
   </div>
