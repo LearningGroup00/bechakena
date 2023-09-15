@@ -12,10 +12,10 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(name: params[:category][:name], category_id: params[:category][:category_id])
+    @category = Category.new(category_params)
 
-    if @category.save 
-      redirect_to category_path
+    if @category.save
+      redirect_to category_url(@category)
     else 
       render new 
     end 
@@ -26,12 +26,18 @@ class CategoriesController < ApplicationController
   end
 
   def update
+
   end
 
   def destroy
+    @category.delete
   end
 
   private 
+    def category_params
+      params.require(:category).permit(:name, :category_id)
+    end
+
     def find_params 
       @category = Category.find(params[:id])
     end 
