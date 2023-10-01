@@ -38,9 +38,9 @@ class ProductsController < ApplicationController
   def destroy
     find_params 
     if @product.destroy 
-      redirect_to root_path, status: :see_other
+      redirect_to products_path, status: :see_other
     else
-    
+      redirect_to :show
     end 
   end
 

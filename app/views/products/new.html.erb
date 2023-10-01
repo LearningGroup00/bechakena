@@ -40,7 +40,7 @@
       <!--New product Price-->
       <div>
         <%= form.label :price, class: "form-label" %><br>
-        <%= form.number_field :name, placeholder: "Product Price", class: "form-control" %>
+        <%= form.number_field :price, placeholder: "Product Price", class: "form-control" %>
           <% @product.errors.full_messages_for(:name).each do |message| %>
             <div class="text-bg-danger">
               <%= message %>
