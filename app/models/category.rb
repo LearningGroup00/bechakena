@@ -10,9 +10,8 @@
 #
 class Category < ApplicationRecord
   has_many :categories
+  has_many :product
   belongs_to :category, optional: true
-
- 
 
   def self.parent_categories 
     where(category_id: nil)
