@@ -1,43 +1,24 @@
-<div class="row">
-  <div class="col">
-    <h3>All Categories</h3>
+<h3>All Categories</h3>
+<div class="row ">
+  <div class="col col-auto me-auto">
+  </div>
+  <div class="col col-auto">
+    <%= link_to "Add New Category", new_category_url, class: "btn btn-outline-primary" %>
   </div>
 </div>
-<div class="row">
-  <div class="col text-end">
-    <%# <a href="http://localhost:3000/categories/new">
-      <button type="button" class="btn btn-primary">Add New Category</button>
-    </a> %>
-
-    <%= link_to new_category_url do %>
-      <button type="button" class="btn btn-primary">Add New Category</button>
+<table class="table table-striped mt-2">
+  <thead>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Action</th>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, category %></td>
+        <td><%= category.category.name if category.category %></td>
+        <td><%= link_to("Edit", edit_category_url(category)) %></td>
+      </tr>
     <% end %>
-  </div>
-
-</div>
-<div class="row">
-  <div class="col">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Category</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @categories.each do |category| %>
-          <tr>
-            <td> <%= link_to(category.name, category) %> </td>
-            <td><%= category.category&.name %></td>
-            <td>
-              <%= button_to "Delete", category, method: :delete, class: "btn btn-primary" %>
-              <%= link_to("Edit", edit_category_path(category), class: "btn btn-primary") %>
-            </td>
-
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+  </tbody>
+</table>

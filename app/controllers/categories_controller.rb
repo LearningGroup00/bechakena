@@ -1,66 +1,56 @@
 class CategoriesController < ApplicationController
   skip_before_action :verify_authenticity_token
-
+  
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
+    find_params
   end
 
   def new
     @category = Category.new
-    render :new
   end
 
   def create
     @category = Category.new(category_params)
 
     if @category.save
-      # redirect_to category_url(id: category.id)
       redirect_to category_url(@category)
-    else
-      render :new
-    end
+    else 
+      render new 
+    end 
   end
 
   def edit
-    @category = Category.find(params[:id])
-    render :edit
+    find_params
   end
 
   def update
-    @category = Category.find(params[:id])
-
+    find_params 
     if @category.update(category_params)
-      # redirect_to category_url(id: category.id)
       redirect_to category_url(@category)
-    else
+    else 
       render :edit
-    end
+    end 
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    find_params 
+    if @category.destroy 
+      redirect_to root_path, status: :see_other
+    else
+    
+    end 
+  end
 
-    if @category.destroy
-      redirect_to categories_path
+  private 
+    def category_params
+      params.require(:category).permit(:name, :category_id)
     end
-  end
 
-  # def category_params
-  #   { name: params[:category][:name], category_id: params[:category][:category_id] }
-  # end
-
-  def category_params
-    params.require(:category).permit(:name, :category_id)
-  end
+    def find_params 
+      @category = Category.find(params[:id])
+    end 
 end
-
-# params = { name: "value of name" }
-# params[:name]
-
-# params = { category: { name: "user passed value", category_id: 34 }}
-
-# params[:category][:name]

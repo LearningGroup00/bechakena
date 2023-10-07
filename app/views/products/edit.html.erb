@@ -1,0 +1,58 @@
+<div class="row">
+  <div class ="col">
+    <h3>Edit Product</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <!--New product name-->
+    <%= form_with model: @product do |form| %>
+      <div>
+        <%= form.label :name, class: "form-label" %><br>
+        <%= form.text_field :name, placeholder: "Product Name", class: "form-control" %>
+          <% @product.errors.full_messages_for(:name).each do |message| %>
+            <div class="text-bg-danger">
+              <%= message %>
+            </div>
+          <% end %>
+      </div>
+      <!--New product Category-->
+      <div> 
+       <%= form.label :category_id, "Category ID", class: "form-label" %>
+       <%= form.select :category_id, Category.parent_categories.map {
+         |c| [c.name, c.id]
+        }, {}, class: "form-select"  %>
+        <% @product.errors.full_messages_for(:category_id).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+      </div>
+      <div>
+        <!--New product Description-->
+        <%= form.label :description, class: "form-label" %><br>
+        <%= form.text_field :description, placeholder: "Product Description", class: "form-control" %>
+          <% @product.errors.full_messages_for(:description).each do |message| %>
+            <div class="text-bg-danger">
+              <%= message %>
+            </div>
+          <% end %>
+      </div>
+      <!--New product Price-->
+      <div>
+        <%= form.label :price, class: "form-label" %><br>
+        <%= form.number_field :price, placeholder: "Product Price", class: "form-control" %>
+          <% @product.errors.full_messages_for(:name).each do |message| %>
+            <div class="text-bg-danger">
+              <%= message %>
+            </div>
+          <% end %>
+      </div>
+     
+      <div class="mt-2">
+        <%= form.submit "Update", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
