@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    if params[:search].present?
+      @categories = Category.where("name ILIKE ?", params[:search])
+    else 
+      @categories = Category.all
+    end 
   end
 
   def show
