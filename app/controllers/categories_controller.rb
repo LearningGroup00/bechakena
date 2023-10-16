@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
   def update
     find_category
 
-    if @category.update 
+    if @category.update(category_params) 
       redirect_to @category
     else 
       render :edit, status: :unprocessable_entity
@@ -52,7 +52,7 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-
+      #using strong parameters
       params.require(:category).permit(:name, :category_id, :details)
 
     end
