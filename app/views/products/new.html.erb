@@ -25,7 +25,7 @@
           <div class="row mb-3">
               <%= form.label :category_id, class:"col-sm-2 col-form-label" %>
             <div class="col-sm-10">
-            <%= form.select :category_id, Category.where(category_id: nil).map { |c| [c.name, c.id] }, class: "form-control form-select" %>
+            <%= form.select :category_id, Category.where(category_id: present?).map { |c| [c.name, c.id] }, class: "form-control form-select" %>
             </div>
           </div>
           <br>

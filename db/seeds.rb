@@ -9,9 +9,13 @@
 # Product.create(name: "Gree_44", description: "sgsdgg", price: 90, category_id: 4)
 # Product.create(name: "Voo_45", description: "uhshgs", price: 120, category_id: 4)
 
-# Varient.create(color: "red", size: "44", sku: "773450", product_id: 1)
-# Varient.create(color: "green", size: "38", sku: "695470", product_id: 2)
-# Varient.create(color: "yellow", size: "28", sku: "290704", product_id: 3)
-# Varient.create(color: "white", size: "24", sku: "1095385", product_id: 4)
+# Varient.create(color: "red", size: "Small", sku: "redsm10987", product_id: 1)
+# Varient.create(color: "red", size: "Midium", sku: "redmd10988", product_id: 2)
+# Varient.create(color: "red", size: "Large", sku: "redlg10989", product_id: 3)
+# Varient.create(color: "red", size: "Extra-Large", sku: "redel10990", product_id: 4)
+# Varient.create(color: "green", size: "Small", sku: "grsm10991", product_id: 1)
+# Varient.create(color: "green", size: "Midium", sku: "grmd10992", product_id: 2)
+# Varient.create(color: "green", size: "Large", sku: "grlg10993", product_id: 3)
+# Varient.create(color: "green", size: "Extra-Large", sku: "grel10994", product_id: 4)
 
 # User.create(first_name: "Bob", last_name: "Marley", email:"bob@gmail.com", password: "1234", role: "user")
