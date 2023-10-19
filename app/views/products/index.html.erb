@@ -23,10 +23,10 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Name</th>
+          <th scope="col">Product Name</th>
           <th scope="col">Parent Category</th>
           <th scope="col">Price</th>
-          <th scope="col">Action</th>
+          <th scope="col">Product Action</th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +36,12 @@
           <td><%= product.category&.name %></td>
           <td><%= product.price %></td>
           <td>
-            <%=link_to "View", product, class:" btn btn-info" %>
+            <div class="row">
+              <div class="col">
+                <%= link_to "edit", edit_product_url(product), class:"btn btn-warning" %>
+                <%= link_to "View", product_url(product), class: "btn btn-info" %>
+              </div>
+            </div>          
           </td>
         </tr>
         <% end %>

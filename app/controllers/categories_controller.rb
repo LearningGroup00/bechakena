@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def index
+    # @categories = SearchCategory.new(params[:search]).call
     @categories = SearchCategory.call(params[:search])
   end
 
