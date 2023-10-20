@@ -45,7 +45,7 @@
           <h6 class="card-subtitle mb-2 text-body-secondary">Variant color <%= variant.color%></h6>
           <h6 class="card-subtitle mb-2 text-body-secondary">Variant SKU <%= variant.sku %></h6>          
           <div class="row mt-2">
-             <div class="col"> <%= link_to "edit", edit_product_variant_url(@product), class:"btn btn-warning" %></div>
+             <div class="col"> <%= link_to "edit", edit_product_variant_url(@product, variant), class:"btn btn-warning" %></div>
              <div class="col"> <%= button_to "Delete", product_variant_url(@product), method: :delete, class: "btn btn-danger" %></div>
              <div class="col"></div>
           </div>
