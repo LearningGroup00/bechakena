@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   post '/sign_in', to: "users#sign_in"
   get '/sign_in_view',to: "users#sign_in_view"
   post '/sign_up',to: "users#sign_up"
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
 
   get 'homes/home'
   resources :categories
-  resources :products
+  resources :products do
+    resources :variants
+
+  end
   root "homes#home"
 end
