@@ -9,7 +9,12 @@ class VariantsController < ApplicationController
       @product = Product.find(params[:product_id])
       @variant = @product.variants.create(variant_params)
       redirect_to product_path(@product)
-    end
+  end
+
+  def edit 
+    @product = Product.find(params[:product_id])
+    @variant = variant
+  end 
   
     private
       def variant_params

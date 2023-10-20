@@ -2,6 +2,12 @@ class CategoriesController < ApplicationController
   def index
     # @categories = SearchCategory.new(params[:search]).call
     @categories = SearchCategory.call(params[:search])
+
+    respond_to do |format|
+      format.html{}
+      format.csv{send_data GenerateCategoryCsv.new(@categories).call, filename: "Category-#{Date.today}.csv"}
+    end 
+
   end
 
   def show
