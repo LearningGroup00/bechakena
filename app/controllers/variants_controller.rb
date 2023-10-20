@@ -25,6 +25,15 @@ class VariantsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end 
   end 
+
+  def destroy 
+    find_product
+    find_variant
+
+    @variant.destroy 
+    redirect_to @product 
+
+  end 
   
     private
       def variant_params

@@ -31,9 +31,11 @@
 <br>
 <hr>
 <hr>
-
+<div>
 <%= link_to "Add New Variant", new_product_variant_path(@product), class: "btn btn-info" %>
 <%= link_to "Search Variant", new_product_variant_path(@product), class: "btn btn-info" %>
+</div>
+
 <h3>Variants</h3>
 <div class="container d-flex flex-row">
   <% @product.variants.each do |variant| %>
