@@ -12,6 +12,7 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
+# Needed for has_secure_password
 gem 'bcrypt'
 
 # Use the Puma web server [https://github.com/puma/puma]

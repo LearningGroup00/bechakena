@@ -8,7 +8,14 @@
   <div class="col">
     <%= link_to "Add Product", new_product_url(@product), class:"btn btn-primary" %>
   </div>
-  
+  <div class="col">
+    <%# Rendering the csv import form  %>
+    <%= render "shared/csv_import" %>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col"></div>
   <div class="col"></div>
   <div class="col">
     <%= form_tag(products_path, method: :get) do %>
@@ -17,7 +24,6 @@
     <% end %>
   </div>
 </div>
-
 
 <div class="row mt-3">
   <div class="col">

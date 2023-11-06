@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end 
 
   def create 
-    @user = User.new(user_params)
+    @user = User.new(create_user_params)
     if @user.save 
       redirect_to root_path, notice: "Your account is created, please Login"
     else 
@@ -13,9 +13,25 @@ class UsersController < ApplicationController
     end
   end 
 
+  def destroy 
+  end 
+
+  def edit 
+    @user = current_user 
+  end 
+
+  def update 
+  end 
+
+
   private  
-    def user_params 
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
+    def create_user_params 
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role)
     end 
+
+    def update_user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role)
+    end 
+
 
 end
