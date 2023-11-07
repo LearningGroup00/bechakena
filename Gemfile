@@ -15,6 +15,7 @@ gem "pg", "~> 1.1"
 # Needed for has_secure_password
 gem 'bcrypt'
 
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -58,6 +59,7 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  
 end
 
 group :development do
@@ -65,6 +67,7 @@ group :development do
   gem "web-console"
   gem "annotate"
   gem "byebug"
+  gem "letter_opener", group: :development
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -79,3 +82,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "devise", "~> 4.9"
