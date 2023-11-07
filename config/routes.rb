@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
-  
-  resources :users
-
+  root "categories#index"
   resources :categories
   resources :products do
     resources :variants
