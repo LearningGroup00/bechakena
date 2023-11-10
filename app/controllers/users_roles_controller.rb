@@ -9,15 +9,15 @@ class UsersRolesController < ApplicationController
   end
 
   def show
-    @user = User.find(prams[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(prams[:id])
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(prams[:id])
+    @user = User.find(params[:id])
     if User.update(user_params)
       redirect_to :users_role_path
     else 
