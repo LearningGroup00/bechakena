@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  user_roles: ["super_admin","admin","buyer"]
+  USERS_ROLES = ["super_admin","admin","buyer"]
+  # validates :roles, inclusion: { in: USERS_ROLES }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,12 +8,12 @@ class User < ApplicationRecord
 
 
   def super_admin?
-    roles.include?.("super_admin")
+    roles.include?("super_admin")
   end
   def admin?
-    roles.include?.("admin")
+    roles.include?("admin")
   end
   def buyer?
-    roles.include?.("buyer")
+    roles.include?("buyer")
   end
 end

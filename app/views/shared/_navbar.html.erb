@@ -25,7 +25,8 @@
         </li>
       </ul>
       <div class="d-flex">
-        <button class="btn btn-outline-success">Log In</button>
+      <%= button_to "Log out", destroy_user_session_path, :method => :delete, class: "btn btn-outline-success" %>
+     
       </div>
     </div>
   </div>
