@@ -65,6 +65,7 @@ group :development do
   gem "web-console"
   gem "annotate"
   gem "byebug"
+  gem "letter_opener", group: :development
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -79,3 +80,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "devise", "~> 4.9"
