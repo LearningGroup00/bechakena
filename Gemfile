@@ -67,7 +67,7 @@ group :development do
   gem "web-console"
   gem "annotate"
   gem "byebug"
-  gem "letter_opener", group: :development
+  gem "letter_opener"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  
   devise_for :users
   root "categories#index"
   resources :categories
@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :variants
     post :import, on: :collection
   end
+  resources :user_roles 
    
 end
