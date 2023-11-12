@@ -6,20 +6,15 @@
         <tr>
           <th scope="col">Email</th>
           <th scope="col">Roles</th>
-          <th scope="col">Action</th>
-
         </tr>
       </thead>
       <tbody>
-        <% @users.each do |user| %>
+        <% @users.each do |a| %>
         <tr>
-          <td><%= user.email %></td>
+          <td><%= a.email %></td>
        
-          <td><%= user.roles %></td>
-          <td>
-            <%=link_to "Edit",  users_role_path(@user), class:" btn btn-info" %>
-      
-          </td>
+          <td><%= a.roles %></td>
+        
         </tr>
         <% end %>
       </tbody>

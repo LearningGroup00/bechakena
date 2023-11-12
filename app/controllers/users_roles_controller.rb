@@ -1,11 +1,12 @@
 class UsersRolesController < ApplicationController
   def index 
-    
-    if current_user.super_admin?
-    @users = User.all 
-    else 
-      redirect_to root_path, notice: "You are not Allowed"
-    end 
+    # byebug
+    # if current_user.super_admin?
+    # @users = User.all 
+    # else 
+    #   redirect_to root_path, notice: "You are not Allowed"
+    # end 
+    @users = User.all
   end
 
   def show

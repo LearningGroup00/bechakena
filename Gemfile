@@ -66,6 +66,7 @@ group :development do
   gem "annotate"
   gem "byebug"
   gem "letter_opener", group: :development
+  gem 'cancancan'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
