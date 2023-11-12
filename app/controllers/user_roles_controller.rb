@@ -3,7 +3,7 @@ class UserRolesController < ApplicationController
     if current_user.super_admin?
     @users = User.all 
     else 
-      redirect_to root_path, notice: "You are not super admin"
+      redirect_to user_role_path(current_user)
     end 
   end
 

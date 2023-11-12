@@ -7,6 +7,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,:confirmable
   validates :roles, inclusion: { in: USER_ROLES }
 
+  before_save do |user|
+    user.email = email.downcase
+    user.name = name&.downcase 
+    user.username = username&.downcase 
+  end
+
   def super_admin?
     roles.include?("super_admin")
   end

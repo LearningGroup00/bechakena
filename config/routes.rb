@@ -6,6 +6,5 @@ Rails.application.routes.draw do
     resources :variants
     post :import, on: :collection
   end
-  resources :user_roles 
-   
+  resources :user_roles    
 end

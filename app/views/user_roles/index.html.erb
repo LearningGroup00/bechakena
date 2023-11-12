@@ -34,6 +34,8 @@
           <td><%= u.roles.to_sentence %></td>
           <td>
             <%=link_to "View", user_role_path(u), class:" btn btn-info" %>
+            <%= link_to "Edit", edit_user_role_path(u), class: "btn btn-warning" %>
+
           </td>
         </tr>
         <% end %>
