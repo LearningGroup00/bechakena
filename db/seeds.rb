@@ -18,4 +18,6 @@ Variant.create(color: "green", size: "Midium", sku: "grmd10992", product_id: 1)
 Variant.create(color: "green", size: "Large", sku: "grlg10993", product_id: 1)
 Variant.create(color: "green", size: "Extra-Large", sku: "grel10994", product_id: 1)
 
-# User.create(first_name: "Bob", last_name: "Marley", email:"bob@gmail.com", password: "1234", role: "user")
+User.create(name: "Buyer", username: "buyer", email:"buyer@gmail.com", password: "123456", roles: [User::USER_ROLE_BUYER], confirmed_at: Time.current)
+User.create(name: "Super Admin", username: "super_admin", email:"super_admin@gmail.com", password: "123456", roles: [User::USER_ROLE_SUPER_ADMIIN], confirmed_at: Time.current)
+User.create(name: "Admin", username: "admin", email:"admin@gmail.com", password: "123456", roles: [User::USER_ROLE_ADMIN], confirmed_at: Time.current)

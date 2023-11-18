@@ -1,7 +1,12 @@
 class User < ApplicationRecord
-  USER_ROLES = ['super_admin', 'admin', 'shop-admin', 'buyer', 'guest'] 
+  USER_ROLE_SUPER_ADMIIN = 'super_admin'
+  USER_ROLE_ADMIN = 'admin'
+  USER_ROLE_BUYER = 'buyer'
+  USER_ROLE_GUEST = 'guest'
+
+  USER_ROLES = [USER_ROLE_SUPER_ADMIIN, USER_ROLE_ADMIN, USER_ROLE_BUYER, USER_ROLE_GUEST]
   # Include default devise modules. Others available are:
-  
+
   #:lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,:confirmable
@@ -9,12 +14,24 @@ class User < ApplicationRecord
 
   before_save do |user|
     user.email = email.downcase
-    user.name = name&.downcase 
-    user.username = username&.downcase 
+    user.name = name&.downcase
+    user.username = username&.downcase
   end
 
   def super_admin?
-    roles.include?("super_admin")
+    roles.include?(User::USER_ROLE_SUPER_ADMIIN)
+  end
+
+  def admin?
+    roles.include?(User::USER_ROLE_ADMIN)
+  end
+
+  def buyer?
+    roles.include?(User::USER_ROLE_BUYER)
+  end
+
+  def guest?
+    roles.include?(User::USER_ROLE_GUEST)
   end
 end
 
