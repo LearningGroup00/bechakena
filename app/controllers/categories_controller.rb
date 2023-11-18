@@ -3,29 +3,35 @@ class CategoriesController < ApplicationController
     # @categories = SearchCategory.new(params[:search]).call
     @categories = SearchCategory.call(params[:search])
 
+    authorize @categories
+
     respond_to do |format|
       format.html{}
       format.csv{send_data GenerateCategoryCsv.new(@categories).call, filename: "Category-#{Date.today}.csv"}
-    end 
+    end
 
   end
 
   def show
     find_category
+    authorize @category
   end
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
 
-    if @category.save 
+    authorize @category
+
+    if @category.save
       redirect_to category_url(@category)
-    else 
-      render :new 
-    end 
+    else
+      render :new
+    end
   end
 
   def edit
@@ -35,16 +41,16 @@ class CategoriesController < ApplicationController
   def update
     find_category
 
-    if @category.update(category_params) 
+    if @category.update(category_params)
       redirect_to @category
-    else 
+    else
       render :edit, status: :unprocessable_entity
-    end 
+    end
   end
 
   def destroy
     find_category
-    @category.destroy 
+    @category.destroy
     redirect_to root_path, status: :see_other
   end
 
