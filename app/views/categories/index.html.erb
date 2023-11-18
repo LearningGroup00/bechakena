@@ -7,6 +7,8 @@
 <div class="row mt-3">
   <div class="col">
     <%= link_to "Add Category", new_category_url(@category), class:"btn btn-primary" %>
+    <%= link_to "Download CSV", categories_url(format: :csv), class:"btn btn-primary" %>
+
   </div>
   <div class="col"></div>
   <div class="col">

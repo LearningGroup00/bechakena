@@ -1,10 +1,13 @@
 class CategoriesController < ApplicationController
   def index
-    if params[:search].present?
-      @categories = Category.where("name ILIKE ?", params[:search]).or(Category.where("details ILIKE ?", "%#{params[:search]}%"))
-    else 
-      @categories = Category.all
+    # @categories = SearchCategory.new(params[:search]).call
+    @categories = SearchCategory.call(params[:search])
+
+    respond_to do |format|
+      format.html{}
+      format.csv{send_data GenerateCategoryCsv.new(@categories).call, filename: "Category-#{Date.today}.csv"}
     end 
+
   end
 
   def show
@@ -32,7 +35,7 @@ class CategoriesController < ApplicationController
   def update
     find_category
 
-    if @category.update 
+    if @category.update(category_params) 
       redirect_to @category
     else 
       render :edit, status: :unprocessable_entity
@@ -52,7 +55,7 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-
+      #using strong parameters
       params.require(:category).permit(:name, :category_id, :details)
 
     end
