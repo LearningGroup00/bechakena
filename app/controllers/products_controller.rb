@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   def new 
     @product = Product.new
+    @product.variants.build
   end 
 
   def create 
@@ -61,7 +62,8 @@ class ProductsController < ApplicationController
 
   def product_params 
     #using strong parameters
-    params.require(:product).permit(:name, :description, :price, :category_id)
+    params.require(:product).permit(:name, :description, :price, :category_id,
+    variants_attributes: [:id,:color, :size, :sku, :product_id])
   end 
 
 end

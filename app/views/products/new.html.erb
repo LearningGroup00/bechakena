@@ -30,6 +30,34 @@
             </div>
           </div>
           <br>
+
+
+          <%= form.fields_for :variants do |a| %>
+          <div class="row mb-3">
+              <%= a.label :color, class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+            <%= a.text_field :color, placeholder: "Product color", class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+              <%= a.label :size, class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+            <%= a.text_field :size, placeholder: "Small/Medium/Large", class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+              <%= a.label :sku, class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+            <%= a.text_field :sku, placeholder: "redsm*****", class: "form-control" %>
+            </div>
+          </div>
+          <br>
+       <% end %>
+
+
+
+
+
           <div>
             <%= form.submit "Create", class:"btn btn-primary" %>
           </div>
