@@ -10,14 +10,14 @@ Product.create(name: "Gree_44", description: "sgsdgg", price: 90, category_id: 4
 Product.create(name: "Voo_45", description: "uhshgs", price: 120, category_id: 4)
 
 Variant.create(color: "red", size: "Small", sku: "redsm10987", product_id: 1)
-Variant.create(color: "red", size: "Midium", sku: "redmd10988", product_id: 1)
+Variant.create(color: "red", size: "Medium", sku: "redmd10988", product_id: 1)
 Variant.create(color: "red", size: "Large", sku: "redlg10989", product_id: 1)
 Variant.create(color: "red", size: "Extra-Large", sku: "redel10990", product_id: 1)
 Variant.create(color: "green", size: "Small", sku: "grsm10991", product_id: 1)
-Variant.create(color: "green", size: "Midium", sku: "grmd10992", product_id: 1)
+Variant.create(color: "green", size: "Medium", sku: "grmd10992", product_id: 1)
 Variant.create(color: "green", size: "Large", sku: "grlg10993", product_id: 1)
 Variant.create(color: "green", size: "Extra-Large", sku: "grel10994", product_id: 1)
 
 User.create(name: "Buyer", username: "buyer", email:"buyer@gmail.com", password: "123456", roles: [User::USER_ROLE_BUYER], confirmed_at: Time.current)
-User.create(name: "Super Admin", username: "super_admin", email:"super_admin@gmail.com", password: "123456", roles: [User::USER_ROLE_SUPER_ADMIIN], confirmed_at: Time.current)
+User.create(name: "Super Admin", username: "super_admin", email:"super_admin@gmail.com", password: "123456", roles: [User::USER_ROLE_SUPER_ADMIN], confirmed_at: Time.current)
 User.create(name: "Admin", username: "admin", email:"admin@gmail.com", password: "123456", roles: [User::USER_ROLE_ADMIN], confirmed_at: Time.current)
