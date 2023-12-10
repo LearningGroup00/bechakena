@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
-  
-  def index 
+
+  def index
     if params[:search].present?
       @products = Product.where("name ILIKE ?", "%#{params[:search]}%")
-    else 
+    else
     @products = Product.all
-    end 
-  end 
+    end
+  end
 
   def import
   #   return redirect_to request.referer, notice: 'No file added' if params[:file].nil?
@@ -15,54 +15,59 @@ class ProductsController < ApplicationController
     redirect_to root_path, notice: 'Import started...'
   end
 
-  def show 
+  def show
     find_product
-  end 
+  end
 
-  def new 
+  def new
     @product = Product.new
-  end 
+  end
 
-  def create 
+  def create
     @product = Product.new(product_params)
 
-    if @product.save 
-      
+    if @product.save
+      # category = @product.category
+      # product_count = category.product_count
+      # category.update(product_count: product_count + 1)
+
+      ProductCountJob.set(wait: 1.minute).perform_later(@product)
+
       redirect_to product_url(@product)
-    else 
-      render :new 
-    end 
-  end 
+    else
+      render :new
+    end
+  end
 
-  def edit 
+  def edit
     find_product
-  end 
+  end
 
-  def update 
+  def update
     find_product
 
     if @product.update(product_params)
       redirect_to product_url(@product)
-    else 
+    else
       render :edit, status: :unprocessable_entity
-    end 
-  end 
+    end
+  end
 
-  def destroy 
+  def destroy
     find_product
-    @product.destroy 
-    redirect_to root_path, status: :see_other   
-  end 
+    @product.destroy
+    redirect_to root_path, status: :see_other
+  end
 
-  private 
+  private
 
-  def find_product 
+  def find_product
     @product = Product.find(params[:id])
-  end 
+  end
 
-  def product_params 
+  def product_params
     #using strong parameters
     params.require(:product).permit(:name, :description, :price, :category_id)
-  end 
+  end
 
 end

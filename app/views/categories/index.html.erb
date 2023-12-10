@@ -31,6 +31,7 @@
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Parent Category</th>
+          <th scope="col">Product Count</th>
           <th scope="col">Details</th>
           <th scope="col">Action</th>
         </tr>
@@ -40,6 +41,7 @@
         <tr>
           <td><%= category.name %></td>
           <td><%= category.category&.name %></td>
+          <td><%= category.product_count %></td>
           <td><%= category.details %></td>
           <td>
             <%=link_to "View", category, class:" btn btn-info" %>
