@@ -1,13 +1,15 @@
 class UserRolesController < ApplicationController
-  def index 
+  def index
     if current_user.super_admin?
-    @users = User.all 
-    else 
+    @users = User.all
+    else
       redirect_to user_role_path(current_user)
-    end 
+    end
   end
 
   def show
+    authorize :user_role, :show?
+
     find_user
   end
 
@@ -16,21 +18,21 @@ class UserRolesController < ApplicationController
   end
 
   def update
-    find_user 
+    find_user
     if User.update(user_params)
       redirect_to :user_role_path, notice:  "User info updated successfully"
-    else 
+    else
       redirect_to :edit, notice: "Something went wrong"
-    end 
+    end
   end
 
-  private 
-    def find_user 
+  private
+    def find_user
       @user = User.find(params[:id])
     end
 
-    def user_params 
+    def user_params
       params.require(:user).permit(:name, :username, :email, :roles)
-    end 
+    end
 
 end
