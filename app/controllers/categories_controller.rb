@@ -28,6 +28,7 @@ class CategoriesController < ApplicationController
     authorize @category
 
     if @category.save
+      CategoryMailer.info_email(@current_user).deliver_later
       redirect_to category_url(@category)
     else
       render :new
