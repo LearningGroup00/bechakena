@@ -10,10 +10,11 @@ end
 #
 # Table name: categories
 #
-#  id          :bigint           not null, primary key
-#  details     :text
-#  name        :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :bigint
+#  id             :bigint           not null, primary key
+#  details        :text
+#  name           :string           not null
+#  products_count :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  category_id    :bigint
 #

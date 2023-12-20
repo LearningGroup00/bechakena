@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :category
+  belongs_to :category,counter_cache: true
   has_many :variants, dependent: :destroy, inverse_of: :product
   accepts_nested_attributes_for :variants, allow_destroy: true
 end
