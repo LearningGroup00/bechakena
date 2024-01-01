@@ -1,5 +1,4 @@
 require 'net/http'
-
 class GetShopAddress
 
   def initialize(country)
