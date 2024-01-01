@@ -20,5 +20,6 @@ module Bechakena
     # config.eager_load_paths << Rails.root.join("extras")
     config.generators.assets = false
     config.generators.helper = false
+    config.active_job.queue_adapter = :sidekiq
   end
 end

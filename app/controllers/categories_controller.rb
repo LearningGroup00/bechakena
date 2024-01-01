@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.html{}
       format.csv{send_data GenerateCategoryCsv.new(@categories).call, filename: "Category-#{Date.today}.csv"}
+      format.json{}
     end
 
   end

@@ -18,6 +18,15 @@ class User < ApplicationRecord
     user.username = username&.downcase
   end
 
+  after_save :mail_shop_address 
+
+  def mail_shop_address
+    # no need to use @current_user because we are already inside the user context
+    if roles == USER_ROLE_BUYER || USER_ROLE_GUEST 
+      ShopAddressMailer.info_email(self).deliver_later
+    end 
+  end 
+
   def super_admin?
     roles.include?(User::USER_ROLE_SUPER_ADMIIN)
   end
@@ -43,6 +52,7 @@ end
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
+#  country                :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  name                   :string

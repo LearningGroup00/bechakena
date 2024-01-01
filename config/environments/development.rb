@@ -72,5 +72,7 @@ Rails.application.configure do
   #needed to handle email in dev env
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+  require 'sidekiq/testing/inline'
+
 
 end
