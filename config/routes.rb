@@ -1,4 +1,5 @@
 Rails.application.routes.draw do  
+  resources :shop_addresses
   devise_for :users
   root "categories#index"
   resources :categories
